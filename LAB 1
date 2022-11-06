@@ -1,0 +1,17 @@
+Switch>
+disable    Turn off privileged commands
+enable     Turn on privileged commands
+exit       Exit from the EXEC
+ping       ping
+show       Show running system information
+Switch>enable
+Switch#
+configure    Enter configuration mode
+copy         Copy from one file to another
+disable      Turn off privileged commands
+enable       Turn on privileged commands
+exit         Exit from the EXEC
+ping         Send echo messages
+reload       Halt and perform a cold restart
+show         Show running system information
+Switch#end
