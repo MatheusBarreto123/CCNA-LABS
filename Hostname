@@ -1,3 +1,4 @@
+
 Switch>enable
 Switch#configure terminal
 Enter configuration commands, one per line.  End with CNTL/Z.
@@ -15,3 +16,91 @@ Switch(config)#hostname Fred
 Fred(config)#exit
 *Nov 6 21:32:51.589: %SYS-5-CONFIG_I: Configured from console by console
 Fred#exit
+
+Press RETURN to get started.
+Fred>
+Fred>
+
+Fred>enable
+Fred#show running-config
+Building configuration...
+Current configuration : 1310 bytes
+!
+version 15.2
+no service pad
+service timestamps debug uptime
+service timestamps log uptime
+no service password-encryption
+!
+hostname Fred
+!
+no aaa new-model
+system mtu routing 1500
+ip subnet-zero
+!
+!
+!
+!
+no file verify auto
+!
+--MORE--
+!
+end
+
+Fred#
+Fred#
+Fred#show startup-config
+Building configuration...
+Current configuration : 1310 bytes
+!
+version 15.2
+no service pad
+service timestamps debug uptime
+service timestamps log uptime
+no service password-encryption
+!
+no aaa new-model
+system mtu routing 1500
+ip subnet-zero
+!
+!
+!
+!
+no file verify auto
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+--MORE--
+!
+end
+Fred#
+Fred#
+Fred#
+Fred#
+
+Fred#copy running-config startup-config 
+Destination filename [startup-config]? Startup-config
+Fred#show startup-config
+Building configuration...
+Current configuration : 1310 bytes
+!
+version 15.2
+no service pad
+service timestamps debug uptime
+service timestamps log uptime
+no service password-encryption
+!
+hostname Fred
+!
+no aaa new-model
+system mtu routing 1500
+ip subnet-zero
+!
+!
+!
+!
+no file verify auto
+!
+spanning-tree mode pvst
+Fred#
