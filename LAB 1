@@ -14,4 +14,17 @@ exit         Exit from the EXEC
 ping         Send echo messages
 reload       Halt and perform a cold restart
 show         Show running system information
-Switch#end
+Switch#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+Switch(config)#
+enable       Modify enable password parameters
+end          Exit from Configure Mode
+exit         Exit from Configure Mode
+hostname     Set system's network name
+interface    interface
+ip           Global IP configuration subcommands
+line         Configure a terminal line
+vlan         VLan Commands
+Switch(config)#
+Switch(config)#
