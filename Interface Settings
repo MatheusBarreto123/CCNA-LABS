@@ -1,0 +1,208 @@
+
+% Login disabled on console 0, until 'password' is set%
+% Login disabled on line 0, until 'password' is set%
+% Login disabled on line 1, until 'password' is set%
+% Login disabled on line 2, until 'password' is set%
+% Login disabled on line 3, until 'password' is set%
+% Login disabled on line 4, until 'password' is set%
+Press RETURN to get started.
+
+
+User Access Verification
+
+Password:
+Password:
+SW1>enable
+Password:
+SW1#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+SW1(config)#interface f0/1
+SW1(config-if)#speed 100
+SW1(config-if)#duplex full 
+SW1(config-if)#end
+*Dez 3 00:44:55.627: %SYS-5-CONFIG_I: Configured from console by console
+SW1#show interfaces fa0/1
+FastEthernet0/1 is up, line protocol is up (connected)
+  Hardware is Fast Ethernet, address is 0019.e86a.1181 (bia 0019.e86a.1181)
+  MTU 1500 bytes, BW 100000 Kbit/sec, DLY 100 usec,
+    reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, Loopback not set
+  Keepalive set (10 sec)
+  Full-duplex, 100 Mb/s, media type is 10/100BaseTX
+  input flow-control is off, output flow-control is unsupported
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input never, output 01:04:27, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/75/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+    64660 packets input, 6290547 bytes
+    Received 56426 broadcasts, 0 runts, 0 giants, 0 throttles
+    0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+    0 watchdog
+    0 input packets with dribble condition detected
+    10674 packets output, 911377 bytes, 0 underruns
+    0 output errors, 0 collisions, 1 interface resets
+    0 unknown protocol drops
+    0 babbles, 0 late collision, 0 deferred
+    0 lost carrier, 0 no carrier
+    0 output buffer failures, 0 output buffers swapped out
+SW1#
+SW1#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+SW1(config)#interface range fa0/2-3
+SW1(config-if-range)#speed 10
+SW1(config-if-range)#duplex full 
+SW1(config-if-range)#end
+*Dez 3 00:52:27.455: %SYS-5-CONFIG_I: Configured from console by console
+SW1#show run 
+Building configuration...
+Current configuration : 1310 bytes
+!
+version 15.2
+no service pad
+service timestamps debug uptime
+service timestamps log uptime
+no service password-encryption
+!
+hostname SW1
+!
+enable secret 5 $1$95cc$64dd2825f9df13ec4ad683
+no aaa new-model
+system mtu routing 1500
+ip subnet-zero
+!
+!
+!
+!
+no file verify auto
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+interface FastEthernet0/1
+ duplex full
+ speed 100
+!
+interface FastEthernet0/2
+ duplex full
+ speed 10
+!
+interface FastEthernet0/3
+ duplex full
+ speed 10
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+!
+ip http server
+control-plane
+!
+!
+line con 0
+  password  cs
+ logging synchronous
+  login  
+line vty 0 4
+ password cs
+ login
+line vty 5 15
+ no login
+!
+end
+SW1#
+SW1#
+SW1#
+SW1#show interfaces
+FastEthernet0/1 is up, line protocol is up (connected)
+  Hardware is Fast Ethernet, address is 0019.e86a.1181 (bia 0019.e86a.1181)
+  MTU 1500 bytes, BW 100000 Kbit/sec, DLY 100 usec,
+    reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, Loopback not set
+  Keepalive set (10 sec)
+  Full-duplex, 100 Mb/s, media type is 10/100BaseTX
+  input flow-control is off, output flow-control is unsupported
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input never, output 01:04:27, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/75/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 942 bits/sec, 920 packets/sec
+  5 minute output rate 919 bits/sec, 982 packets/sec
+    15 packets input, 3840 bytes
+    Received 56426 broadcasts, 0 runts, 0 giants, 0 throttles
+    0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+    0 watchdog
+    0 input packets with dribble condition detected
+SW1#show interfaces status
+Interface  Name  Status      Vlan  Duplex  Speed   Type                             
+Fa0/1            connected   1     full    100     media type is 10/100BaseTX       
+Fa0/2            connected   1     full    10      media type is 10/100BaseTX       
+Fa0/3            notconnect  1     full    10      media type is 10/100BaseTX       
+Fa0/4            notconnect  1     auto    auto    media type is 10/100BaseTX       
+Fa0/5            notconnect  1     auto    auto    media type is 10/100BaseTX       
+Fa0/6            notconnect  1     auto    auto    media type is 10/100BaseTX       
+Fa0/7            notconnect  1     auto    auto    media type is 10/100BaseTX       
+Fa0/8            notconnect  1     auto    auto    media type is 10/100BaseTX       
+Fa0/9            notconnect  1     auto    auto    media type is 10/100BaseTX       
+Fa0/10           notconnect  1     auto    auto    media type is 10/100BaseTX       
+Fa0/11           notconnect  1     auto    auto    media type is 10/100BaseTX       
+Fa0/12           notconnect  1     auto    auto    media type is 10/100BaseTX       
+Fa0/13           notconnect  1     auto    auto    media type is 10/100BaseTX       
+Fa0/14           notconnect  1     auto    auto    media type is 10/100BaseTX       
+Fa0/15           notconnect  1     auto    auto    media type is 10/100BaseTX       
+SW1#
