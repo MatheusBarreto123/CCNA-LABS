@@ -1,0 +1,219 @@
+% Login disabled on console 0, until 'password' is set%
+% Login disabled on line 0, until 'password' is set%
+% Login disabled on line 1, until 'password' is set%
+% Login disabled on line 2, until 'password' is set%
+% Login disabled on line 3, until 'password' is set%
+% Login disabled on line 4, until 'password' is set%
+Press RETURN to get started.
+
+
+User Access Verification
+
+Password:
+SW1>enable
+Password:
+Password:
+SW1#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+SW1(config)#interface range fa0/11-20
+
+SW1(config-if-range)#description Unused ports
+
+SW1(config-if-range)#end
+*Dez 3 01:01:34.455: %SYS-5-CONFIG_I: Configured from console by console
+SW1#show running-config
+Building configuration...
+Current configuration : 1310 bytes
+!
+version 15.2
+no service pad
+service timestamps debug uptime
+service timestamps log uptime
+no service password-encryption
+!
+hostname SW1
+!
+enable secret 5 $1$95cc$64dd2825f9df13ec4ad683
+no aaa new-model
+system mtu routing 1500
+ip subnet-zero
+!
+!
+!
+!
+no file verify auto
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+interface FastEthernet0/1
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+ description Unused ports
+!
+interface FastEthernet0/12
+ description Unused ports
+!
+interface FastEthernet0/13
+ description Unused ports
+!
+interface FastEthernet0/14
+ description Unused ports
+!
+interface FastEthernet0/15
+ description Unused ports
+!
+interface FastEthernet0/16
+ description Unused ports
+!
+interface FastEthernet0/17
+ description Unused ports
+!
+interface FastEthernet0/18
+ description Unused ports
+!
+interface FastEthernet0/19
+ description Unused ports
+!
+interface FastEthernet0/20
+ description Unused ports
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+!
+ip http server
+control-plane
+!
+!
+line con 0
+  password  cs
+ logging synchronous
+  login  
+line vty 0 4
+ password cs
+ login
+line vty 5 15
+ no login
+!
+end
+SW1#
+SW1#
+SW1#show interface description 
+Interface		Status  				Protocol		Description
+Fa0/1   		up      				up      		
+Fa0/2   		up      				up      		
+Fa0/3   		down    				down    		
+Fa0/4   		down    				down    		
+Fa0/5   		down    				down    		
+Fa0/6   		down    				down    		
+Fa0/7   		down    				down    		
+Fa0/8   		down    				down    		
+Fa0/9   		down    				down    		
+Fa0/10  		down    				down    		
+Fa0/11  		down    				down    		Unused ports
+Fa0/12  		down    				down    		Unused ports
+Fa0/13  		down    				down    		Unused ports
+Fa0/14  		down    				down    		Unused ports
+Fa0/15  		down    				down    		Unused ports
+Fa0/16  		down    				down    		Unused ports
+Fa0/17  		down    				down    		Unused ports
+Fa0/18  		down    				down    		Unused ports
+Fa0/19  		down    				down    		Unused ports
+Fa0/20  		down    				down    		Unused ports
+Fa0/21  		down    				down    		
+Fa0/22  		down    				down    		
+Fa0/23  		down    				down    		
+Fa0/24  		down    				down    		
+Gi0/1   		up      				up      		
+Gi0/2   		down    				down    		
+SW1#
+SW1#
+SW1#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+SW1(config)#interface range fa0/11-20
+SW1(config-if-range)#shutdown 
+*Dez 3 01:05:01.652: %LINK-3-UPDOWN: Interface FastEthernet0/20, changed state to administratively down
+SW1(config-if-range)#
+*Dez 3 01:05:01.658: %LINK-3-UPDOWN: Interface FastEthernet0/12, changed state to administratively down
+SW1(config-if-range)#
+*Dez 3 01:05:01.658: %LINK-3-UPDOWN: Interface FastEthernet0/13, changed state to administratively down
+SW1(config-if-range)#
+*Dez 3 01:05:01.659: %LINK-3-UPDOWN: Interface FastEthernet0/11, changed state to administratively down
+SW1(config-if-range)#
+*Dez 3 01:05:01.659: %LINK-3-UPDOWN: Interface FastEthernet0/16, changed state to administratively down
+SW1(config-if-range)#
+*Dez 3 01:05:01.659: %LINK-3-UPDOWN: Interface FastEthernet0/17, changed state to administratively down
+SW1(config-if-range)#
+*Dez 3 01:05:01.660: %LINK-3-UPDOWN: Interface FastEthernet0/14, changed state to administratively down
+SW1(config-if-range)#
+*Dez 3 01:05:01.660: %LINK-3-UPDOWN: Interface FastEthernet0/15, changed state to administratively down
+SW1(config-if-range)#
+*Dez 3 01:05:01.660: %LINK-3-UPDOWN: Interface FastEthernet0/18, changed state to administratively down
+SW1(config-if-range)#
+*Dez 3 01:05:01.661: %LINK-3-UPDOWN: Interface FastEthernet0/19, changed state to administratively down
+SW1(config-if-range)#end
+*Dez 3 01:05:16.691: %SYS-5-CONFIG_I: Configured from console by console
+SW1#show interface status
+Interface  Name          Status      Vlan  Duplex  Speed   Type                             
+Fa0/1                    connected   1     a-full  a-100   media type is 10/100BaseTX       
+Fa0/2                    connected   1     a-full  a-100   media type is 10/100BaseTX       
+Fa0/3                    notconnect  1     auto    auto    media type is 10/100BaseTX       
+Fa0/4                    notconnect  1     auto    auto    media type is 10/100BaseTX       
+Fa0/5                    notconnect  1     auto    auto    media type is 10/100BaseTX       
+Fa0/6                    notconnect  1     auto    auto    media type is 10/100BaseTX       
+Fa0/7                    notconnect  1     auto    auto    media type is 10/100BaseTX       
+Fa0/8                    notconnect  1     auto    auto    media type is 10/100BaseTX       
+Fa0/9                    notconnect  1     auto    auto    media type is 10/100BaseTX       
+Fa0/10                   notconnect  1     auto    auto    media type is 10/100BaseTX       
+Fa0/11     Unused ports  disabled    1     auto    auto    media type is 10/100BaseTX       
+Fa0/12     Unused ports  disabled    1     auto    auto    media type is 10/100BaseTX       
+Fa0/13     Unused ports  disabled    1     auto    auto    media type is 10/100BaseTX       
+Fa0/14     Unused ports  disabled    1     auto    auto    media type is 10/100BaseTX       
+Fa0/15     Unused ports  disabled    1     auto    auto    media type is 10/100BaseTX       
+Fa0/16     Unused ports  disabled    1     auto    auto    media type is 10/100BaseTX       
+Fa0/17     Unused ports  disabled    1     auto    auto    media type is 10/100BaseTX       
+Fa0/18     Unused ports  disabled    1     auto    auto    media type is 10/100BaseTX       
+Fa0/19     Unused ports  disabled    1     auto    auto    media type is 10/100BaseTX       
+Fa0/20     Unused ports  disabled    1     auto    auto    media type is 10/100BaseTX       
+Fa0/21                   notconnect  1     auto    auto    media type is 10/100BaseTX       
+Fa0/22                   notconnect  1     auto    auto    media type is 10/100BaseTX       
+Fa0/23                   notconnect  1     auto    auto    media type is 10/100BaseTX       
+Fa0/24                   notconnect  1     auto    auto    media type is 10/100BaseTX       
+Gi0/1                    connected   1     a-full  a-1000  media type is 10/100/1000BaseTX  
+Gi0/2                    notconnect  1     auto    auto    media type is 10/100/1000BaseTX  
+vlan1                    connected   1     auto    auto    media type is 10/100/1000BaseTX  
